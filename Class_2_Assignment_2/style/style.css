@@ -1,0 +1,64 @@
+*{
+    font-family: 'Caprasimo', cursive;
+}
+
+body{
+    background-color:;
+}
+
+.salud-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px;
+    background-color:teal ;
+}
+
+.container-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pets-info{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+.pet-element{
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 2px;
+    background-color: bisque;
+    width: 200px;
+}
+
+.number-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px;
+    padding: 10px;
+    background-color: chocolate;
+}
+
+.inputs-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px;
+    background-color:teal ;
+    text-align: center;
+}

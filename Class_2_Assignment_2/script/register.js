@@ -18,18 +18,21 @@ let petSalon={
             name:"Scooby",
             age: 10,
             gender:"Male",
+            bread:"Grand Dance",
             service: "Grooming"
         },
         {
             name:"Speedy",
             age: 6,
             gender:"Male",
+            bread:"Chihuahua",
             service: "Vaccine"
         },
         {
             name:"Grasy",
             age: 2,
             gender:"Female",
+            bread:"Pitbull",
             service: "Grooming"
         }
     ]
@@ -42,12 +45,21 @@ function displaySalonInfo() {
         <h3> We are in Street ${petSalon.address.street} Number: ${petSalon.address.numbers}</h3>
         <h3> with zip: ${petSalon.address.zip}</h3>
         <h3> we open doors at ${petSalon.hours.open} and close at ${petSalon.hours.close}</h3>
-
     `
 }
 
-function displayPets() {
+function displayFooter() {
+    document.getElementById("footer").innerHTML=`
+        <h3> Welcome to the ${petSalon.name}</h3>
+        <h3> Call us: ${petSalon.phone}</h3>
+        <h3> We are in Street ${petSalon.address.street} Number: ${petSalon.address.numbers}</h3>
+        <h3> with zip: ${petSalon.address.zip}</h3>
+        <h3> we open doors at ${petSalon.hours.open} and close at ${petSalon.hours.close}</h3>
+    `
+}
 
+
+function displayPets() {
     petSalon.pets.forEach(pet => {
         document.getElementById("petsinfo").innerHTML+=`
         <div class="pet-element">
@@ -80,6 +92,31 @@ let inputGender = document.getElementById("txtGender");
 let inputBreed = document.getElementById("txtBreed");
 let inputService= document.getElementById("txtService");
 
+function register() {
+    console.log("Register a new pet");
+
+    if(!(inputName.value     ||
+        inputAge.value      ||
+        inputGender.value   ||
+        inputBreed.value    ||
+        inputService.value)) {
+        alert("Error! Missing data.");
+    }
+    // create a new pet
+    let newPet = new Pet(
+        inputName.value,
+        inputAge.value,
+        inputGender.value,
+        inputBreed.value,
+        inputService.value
+    );
+
+    console.log(newPet);
+
+    petSalon.pets.push(newPet);
+    displayPetsNumber();
+}
+
 function init() {
     // hook event
 
@@ -91,6 +128,8 @@ function init() {
     displayPets();
 
     displayPetsNumber();
+
+    displayFooter();
 }
 
 window.onload=init;

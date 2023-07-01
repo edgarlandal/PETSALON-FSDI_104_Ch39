@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>PetSalon</title>
+</head>
+
+<body>
+    <header>
+        <h1>The Fashion Pet</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">Abou</a>
+            <a href="services.html">Service</a>
+            <a href="register.html">Register</a>
+        </nav>
+        <div id="saludinfo" class="salud-info">
+
+        </div>
+    </header>
+
+    <main class="container-main">
+
+        <div class="container">
+            <div class="mb-3">
+                <label class="form-label"> Name: </label>
+                <input type="text" class="form-control" name="name" id="txtName">
+            </div>
+            <div class="mb-3">
+                <label class="form-label"> Age: </label>
+                <input type="number" name="age" class="form-control" id="txtAge">
+            </div>
+            <div class="mb-3">
+                <label class="form-label"> Gender: </label>
+                <select id="txtGender" class="form-control">
+                    <option value="">-- Select an option--</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"> Breed: </label>
+                <input type="text" name="breed" class="form-control" id="txtBreed">
+            </div>
+            <div class="mb-3">
+                <label class="form-label"> Service: </label>
+                <select id="txtService" class="form-control">
+                    <option value="">-- Select an option--</option>
+                    <option value="gromming">Gromming</option>
+                    <option value="nail cut">Nail cut</option>
+                    <option value="vaccine">Vaccine</option>
+                </select>
+            </div>
+            <div>
+                <button class="btn btn-dark" onclick="register()">Register</button>
+            </div>
+        </div>
+
+        <div id="petsinfo" class="pets-info">
+
+        </div>
+
+        <div id="numberpets" class="number-info">
+
+        </div>
+    </main>
+
+    <footer class="footer-container" id="footer">
+
+    </footer>
+
+    <!-- <script src="./script/practice.js"></script> -->
+    <script src="./script/register.js"></script>
+</body>
+
+</html>
