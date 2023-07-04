@@ -28,7 +28,9 @@
     </header>
 
     <main class="container-main">
-
+        <div id="notifications">
+            
+        </div>
         <div class="container">
             <div class="mb-3">
                 <label class="form-label"> Name: </label>
@@ -64,13 +66,27 @@
             </div>
         </div>
 
-        <div id="petsinfo" class="pets-info">
+        <div id="petsinfo" class="container">
 
         </div>
 
         <div id="numberpets" class="number-info">
 
         </div>
+
+        <table class="container">
+            <thead>
+                <tr>
+                    <td> Name </td>
+                    <td> Age </td>
+                    <td> Gender </td>
+                    <td> Service </td>
+                </tr>
+            </thead>
+            <tbody id="petTable">
+
+            </tbody>
+        </table>
     </main>
 
     <footer class="footer-container" id="footer">
@@ -79,6 +95,8 @@
 
     <!-- <script src="./script/practice.js"></script> -->
     <script src="./script/register.js"></script>
+    <script src="./script/display.js"></script>
+
 </body>
 
 </html>

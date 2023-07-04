@@ -13,30 +13,17 @@ let petSalon={
         close:"5:00pm"
     },
 
-    pets:[
-        {
-            name:"Scooby",
-            age: 10,
-            gender:"Male",
-            bread:"Grand Dance",
-            service: "Grooming"
-        },
-        {
-            name:"Speedy",
-            age: 6,
-            gender:"Male",
-            bread:"Chihuahua",
-            service: "Vaccine"
-        },
-        {
-            name:"Grasy",
-            age: 2,
-            gender:"Female",
-            bread:"Pitbull",
-            service: "Grooming"
-        }
-    ]
+    pets:[]
 }
+
+let inputName = document.getElementById("txtName");
+let inputAge = document.getElementById("txtAge");
+let inputGender = document.getElementById("txtGender");
+let inputBreed = document.getElementById("txtBreed");
+let inputService = document.getElementById("txtService");
+
+// ----*****
+let notifications = document.getElementById("notifications");
 
 function displaySalonInfo() {
     document.getElementById("saludinfo").innerHTML=`
@@ -58,15 +45,12 @@ function displayFooter() {
     `
 }
 
-
 function displayPets() {
+    document.getElementById("petsinfo").innerHTML='';
     petSalon.pets.forEach(pet => {
         document.getElementById("petsinfo").innerHTML+=`
         <div class="pet-element">
             <p>Name: ${pet.name}</p>
-            <p>Age: ${pet.age}</p>
-            <p>Gender: ${pet.gender}</p>
-            <p>Service: ${pet.service}</p>
         </div>
     `
     });
@@ -78,6 +62,14 @@ function displayPetsNumber() {
     `
 }
 
+function clearForm() {
+    inputName.value = '',
+    inputAge.value = '',
+    inputGender.value = '',
+    inputBreed.value = '',
+    inputService.value = ''
+}
+
 function Pet(n, a, g, b, s) {
     this.name = n;
     this.age = a;
@@ -86,35 +78,77 @@ function Pet(n, a, g, b, s) {
     this.service = s;
 }
 
-let inputName = document.getElementById("txtName");
-let inputAge = document.getElementById("txtAge");
-let inputGender = document.getElementById("txtGender");
-let inputBreed = document.getElementById("txtBreed");
-let inputService= document.getElementById("txtService");
+function isValid() {
+    let validation = true;
+    inputName.classList.remove("error");
+    inputAge.classList.remove("error");
+    inputGender.classList.remove("error");
+    inputBreed.classList.remove("error");
+    inputService.classList.remove("error");
+
+    notifications.classList.remove("error");
+
+    let error = '';
+
+    if(!(inputName.value)) {
+        validation = false;
+        inputName.classList.add("error");
+        error = error + " name";
+    }
+
+    if (!(inputAge.value)) {
+        validation = false;
+        inputAge.classList.add("error");
+        error = error + " age";
+    }
+
+    if (!(inputGender.value)) {
+        validation = false;
+        inputGender.classList.add("error");
+        error = error + " gender";
+    }
+
+    if (!(inputBreed.value)) {
+        validation = false;
+        inputBreed.classList.add("error");
+        error = error + " breed";
+    }
+
+    if(!(inputService.value)){
+        validation = false;
+        inputService.classList.add("error");
+        error = error + " service";
+    }
+
+
+    if(!validation){
+        notifications.innerHTML=(`<h3>error! no v alid for ${error}</h3>`);
+        notifications.classList.add("error");
+    }
+
+
+    return validation;
+}
 
 function register() {
     console.log("Register a new pet");
 
-    if(!(inputName.value     ||
-        inputAge.value      ||
-        inputGender.value   ||
-        inputBreed.value    ||
-        inputService.value)) {
-        alert("Error! Missing data.");
+    if (isValid()) {
+        // create a new pet
+        let newPet = new Pet(
+            inputName.value,
+            inputAge.value,
+            inputGender.value,
+            inputBreed.value,
+            inputService.value
+        );
+        petSalon.pets.push(newPet);
+        console.log(newPet);
+        clearForm();
+        displayPets();
+        displayPetsNumber();
+        displayTable();
     }
-    // create a new pet
-    let newPet = new Pet(
-        inputName.value,
-        inputAge.value,
-        inputGender.value,
-        inputBreed.value,
-        inputService.value
-    );
-
-    console.log(newPet);
-
-    petSalon.pets.push(newPet);
-    displayPetsNumber();
 }
 
 function init() {
@@ -122,13 +156,15 @@ function init() {
 
     // execute functions 
 
-    let pet = new Pet("Lion", 1, "Male", "Pug", "Grooming");
+    let lion = new Pet("Lion", 1, "Male", "Pug", "Grooming");
+    let parker = new Pet("Parker", 1.5, "Male", "Pug", "Vaccinie");
+
+    petSalon.pets.push(lion, parker);
+
     displaySalonInfo();
-
     displayPets();
-
     displayPetsNumber();
-
+    displayTable();
     displayFooter();
 }
 
