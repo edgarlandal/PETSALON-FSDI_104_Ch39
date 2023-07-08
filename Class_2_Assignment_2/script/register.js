@@ -1,5 +1,3 @@
-console.log("outside");
-
 let petSalon={
     name:"The Fashion pet",
     phone:"444-444-4444",
@@ -21,6 +19,8 @@ let inputAge = document.getElementById("txtAge");
 let inputGender = document.getElementById("txtGender");
 let inputBreed = document.getElementById("txtBreed");
 let inputService = document.getElementById("txtService");
+let inputSchedule = document.getElementById("txtSchedule");
+let inputOwner = document.getElementById("txtOwner");
 
 // ----*****
 let notifications = document.getElementById("notifications");
@@ -49,7 +49,7 @@ function displayPets() {
     document.getElementById("petsinfo").innerHTML='';
     petSalon.pets.forEach(pet => {
         document.getElementById("petsinfo").innerHTML+=`
-        <div class="pet-element">
+        <div class="pet-element" id="${pet.id}">
             <p>Name: ${pet.name}</p>
         </div>
     `
@@ -63,19 +63,25 @@ function displayPetsNumber() {
 }
 
 function clearForm() {
-    inputName.value = '',
-    inputAge.value = '',
-    inputGender.value = '',
-    inputBreed.value = '',
-    inputService.value = ''
+    inputName.value = '';
+    inputAge.value = '';
+    inputGender.value = '';
+    inputBreed.value = '';
+    inputService.value = '';
+    inputSchedule.value = '';
+    inputOwner.value = '';
 }
 
-function Pet(n, a, g, b, s) {
+let c = 0;
+function Pet(n, a, g, b, s, sc, o) {
+    this.id = c++;
     this.name = n;
     this.age = a;
     this.gender = g;
-    this.bread = b;
+    this.breed = b;
     this.service = s;
+    this.schedule = sc; 
+    this.owner = o;
 }
 
 function isValid() {
@@ -85,6 +91,8 @@ function isValid() {
     inputGender.classList.remove("error");
     inputBreed.classList.remove("error");
     inputService.classList.remove("error");
+    inputSchedule.classList.remove("error");
+    inputOwner.classList.remove("error");
 
     notifications.classList.remove("error");
 
@@ -120,6 +128,17 @@ function isValid() {
         error = error + " service";
     }
 
+    if(!(inputSchedule.value)){
+        validation = false;
+        inputSchedule.classList.add("error");
+        error = error + " schedule";
+    }
+
+    if(!(inputOwner.value)){
+        validation = false;
+        inputOwner.classList.add("error");
+        error = error + " owner";
+    }
 
     if(!validation){
         notifications.innerHTML=(`<h3>error! no v alid for ${error}</h3>`);
@@ -140,8 +159,11 @@ function register() {
             inputAge.value,
             inputGender.value,
             inputBreed.value,
-            inputService.value
+            inputService.value,
+            inputSchedule.value,
+            inputOwner.value
         );
+
         petSalon.pets.push(newPet);
         console.log(newPet);
         clearForm();
@@ -156,8 +178,8 @@ function init() {
 
     // execute functions 
 
-    let lion = new Pet("Lion", 1, "Male", "Pug", "Grooming");
-    let parker = new Pet("Parker", 1.5, "Male", "Pug", "Vaccinie");
+    let lion = new Pet("Lion", 1, "Male", "Pug", "Grooming", "10:00", "Mayra");
+    let parker = new Pet("Parker", 1.5, "Male", "Pug", "Vaccinie", "09:00", "Maria");
 
     petSalon.pets.push(lion, parker);
 
