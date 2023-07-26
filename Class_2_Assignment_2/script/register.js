@@ -1,6 +1,6 @@
 let petSalon={
     name:"The Fashion pet",
-    phone:"444-444-4444",
+    phone:"(444)-444-4444",
     address:{
         street:"Palm ave",
         numbers:"262",
@@ -22,28 +22,7 @@ let inputService = document.getElementById("txtService");
 let inputSchedule = document.getElementById("txtSchedule");
 let inputOwner = document.getElementById("txtOwner");
 
-// ----*****
 let notifications = document.getElementById("notifications");
-
-function displaySalonInfo() {
-    document.getElementById("saludinfo").innerHTML=`
-        <h3> Welcome to the ${petSalon.name}</h3>
-        <h3> Call us: ${petSalon.phone}</h3>
-        <h3> We are in Street ${petSalon.address.street} Number: ${petSalon.address.numbers}</h3>
-        <h3> with zip: ${petSalon.address.zip}</h3>
-        <h3> we open doors at ${petSalon.hours.open} and close at ${petSalon.hours.close}</h3>
-    `
-}
-
-function displayFooter() {
-    document.getElementById("footer").innerHTML=`
-        <h3> Welcome to the ${petSalon.name}</h3>
-        <h3> Call us: ${petSalon.phone}</h3>
-        <h3> We are in Street ${petSalon.address.street} Number: ${petSalon.address.numbers}</h3>
-        <h3> with zip: ${petSalon.address.zip}</h3>
-        <h3> we open doors at ${petSalon.hours.open} and close at ${petSalon.hours.close}</h3>
-    `
-}
 
 function displayPets() {
     document.getElementById("petsinfo").innerHTML='';
@@ -101,48 +80,51 @@ function isValid() {
     if(!(inputName.value)) {
         validation = false;
         inputName.classList.add("error");
-        error = error + " name";
+        error = error + "-name";
     }
 
     if (!(inputAge.value)) {
         validation = false;
         inputAge.classList.add("error");
-        error = error + " age";
+        error = error + "-age";
     }
 
     if (!(inputGender.value)) {
         validation = false;
         inputGender.classList.add("error");
-        error = error + " gender";
+        error = error + "-gender";
     }
 
     if (!(inputBreed.value)) {
         validation = false;
         inputBreed.classList.add("error");
-        error = error + " breed";
+        error = error + "-breed";
     }
 
     if(!(inputService.value)){
         validation = false;
         inputService.classList.add("error");
-        error = error + " service";
+        error = error + "-service";
     }
 
     if(!(inputSchedule.value)){
         validation = false;
         inputSchedule.classList.add("error");
-        error = error + " schedule";
+        error = error + "-schedule";
     }
 
     if(!(inputOwner.value)){
         validation = false;
         inputOwner.classList.add("error");
-        error = error + " owner";
+        error = error + "-owner";
     }
 
     if(!validation){
-        notifications.innerHTML=(`<h3>error! no v alid for ${error}</h3>`);
+        notifications.innerHTML=(`<h3>error! no valid for ${error}</h3>`);
         notifications.classList.add("error");
+    } else {
+        notifications.innerHTML=(``);
+        notifications.classList.remove("error");
     }
 
 
@@ -150,7 +132,6 @@ function isValid() {
 }
 
 function register() {
-    console.log("Register a new pet");
 
     if (isValid()) {
         // create a new pet
@@ -165,7 +146,6 @@ function register() {
         );
 
         petSalon.pets.push(newPet);
-        console.log(newPet);
         clearForm();
         displayPets();
         displayPetsNumber();
@@ -180,14 +160,15 @@ function init() {
 
     let lion = new Pet("Lion", 1, "Male", "Pug", "Grooming", "10:00", "Mayra");
     let parker = new Pet("Parker", 1.5, "Male", "Pug", "Vaccinie", "09:00", "Maria");
+    let mune = new Pet("Mune", 2, "Female", "Pug", "Grooming", "12:00", "Mayra");
 
-    petSalon.pets.push(lion, parker);
+    petSalon.pets.push(lion, parker,mune);
 
-    displaySalonInfo();
+    // displaySalonInfo();
     displayPets();
     displayPetsNumber();
     displayTable();
-    displayFooter();
+    // displayFooter();
 }
 
 window.onload=init;

@@ -1,25 +1,78 @@
+/* GLOBALS*/
 *{
     font-family: 'Caprasimo', cursive;
 }
 
-/* body{
-    background-color:;
-} */
+/* END GLOBALS */ 
 
-.salud-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid 2px;
-    background-color:teal ;
+/* NAVIGATION */
+header{
+    background-color: chocolate;
 }
 
-.container-main{
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+header img {
+    width:10%;
+}
+
+header .container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
+
+.logo { 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* END NAVIGATION */
+
+/* FOOTER CASE */
+footer{
+    background-color: chocolate;
+    padding: 10px;
+}
+
+/* END FOOTER */
+/* INDEX */
+.main{
+    background: linear-gradient(rgb(140,212,228), rgb(57,183,210));
+}
+.home {
+    background-image: url(../img/index.jpg);
+    width: 100%; 
+    height: 880px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.home span{
+    font-size: 100px;
+    font-style: italic;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 3px black, 0 0 5px blue;
+
+}
+
+/* END INDEX */
+
+/* REGISTER PETS */
 
 #petsinfo{
     display: grid;
@@ -31,11 +84,12 @@
 }
 
 .pet-element{
-    padding: 10px;
+    align-items: center;
     border-radius: 10px;
     border: solid 2px;
     background-color: bisque;
-    width: 200px;
+    width: auto;
+    text-align: center;
 }
 
 .number-info{
@@ -43,26 +97,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid 2px;
     padding: 10px;
-    background-color: chocolate;
-}
-
-.inputs-data{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid 2px;
-    background-color:teal ;
-    text-align: center;
 }
 
 .error{
@@ -71,27 +106,43 @@
 
 #notifications{
     background-color:  rgb(241, 116, 116);
-    /* border-radius: 10px; */
-    /* padding: 1rem; */
+    border-radius: 10px;
+    padding-left: 10px;
+}
+/* END REGISTER PETS*/
+
+
+/* SERVICES  */
+#services{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
 }
 
-/* table {
-    border: 1px solid lightslategray;
-    font-size: 1.6rem;
-    border-collapse: collapse;
-    margin: 2rem auto;
+.service{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px black;
+    padding: 10px;
+    margin: 20px;
+    width: 500px;
+    border-radius: 10px;
+    
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.3);
 }
 
-td {
-    border: 1px solid lightgray;
-    padding: 1rem;
-    height: 100%;
-    text-align: center;
+.service p{
+    text-align: justify;
 }
 
-th {
+.service img{
+    width: 200px;
+    height: 200px;
+}
 
-    padding: 1rem;
-    text-align: center;
-    background-color: rgb(243, 207, 28);
-} */
+
+
+/* END SERVICES */

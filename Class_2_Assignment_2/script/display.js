@@ -11,7 +11,6 @@ function displayCards() {
     });
 
 
-    console.log(card);
     // create the template of the card
 
     //insert the card into the HTML
@@ -31,7 +30,6 @@ function deletePet(id) {
     document.getElementById(id).remove();
     document.getElementById(id).remove();
 
-    console.log(petSalon.pets);
 
     displayPetsNumber();
 }
@@ -59,3 +57,4 @@ function displayTable() {
 
     table.innerHTML = tr;
 }
+
