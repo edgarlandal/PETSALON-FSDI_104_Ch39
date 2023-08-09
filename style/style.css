@@ -7,7 +7,7 @@
 
 /* NAVIGATION */
 header{
-    background-color: chocolate;
+    background-color: #F86F03;
 }
 
 nav a{
@@ -29,6 +29,15 @@ header .container{
     padding: 20px;
 }
 
+main {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .logo { 
     display: flex;
     flex-direction: row;
@@ -39,7 +48,7 @@ header .container{
 
 /* FOOTER CASE */
 footer{
-    background-color: chocolate;
+    background-color: #F86F03;
     padding: 10px;
 }
 
@@ -48,6 +57,8 @@ footer{
 .main{
     background: linear-gradient(rgb(140,212,228), rgb(57,183,210));
 }
+
+
 .home {
     background-image: url(../img/index.jpg);
     width: 100%; 
@@ -124,25 +135,61 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 1px black;
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     width: 500px;
     border-radius: 10px;
     
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 20.3),
     -2px -2px 4px rgba(255, 255, 255, 0.3);
+
+    background-color: #FFF6F4;
 }
 
 .service p{
     text-align: justify;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .service img{
+    border-radius: 100px;
     width: 200px;
     height: 200px;
+        
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 20);
+
+}
+
+.text-container {
+    border-radius: 10px;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFA41B;
+
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 20);
+}
+
+.text-container p {
+    text-align: center;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .service { 
+        margin-top: 20px;
+        margin-left: 0px;
+        width: auto;
+    }
+
+    #services{
+        flex-direction: column;
+    }
 }
 
 
 
 /* END SERVICES */
+
